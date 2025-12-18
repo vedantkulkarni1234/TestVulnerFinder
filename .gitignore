@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtualenvs
+.venv/
+venv/
+ENV/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Tooling caches
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Reports
+aurora-report.*
+
+# OS
+.DS_Store
