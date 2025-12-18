@@ -6,7 +6,17 @@ from typing import Annotated
 
 import typer
 
-from core.engine import DetectionModule, Engine, EngineStats, Finding, ScanConfig, ScanResult, Target
+from core.engine import (
+    DetectionModule,
+    DistributedQueueConfig,
+    Engine,
+    EngineStats,
+    Finding,
+    ScanConfig,
+    ScanResult,
+    Target,
+)
+from core.http import WAFBypassConfig
 from modules.fastjson import FastjsonModule
 from modules.ghostscript import GhostscriptModule
 from modules.jackson import JacksonDatabindModule
@@ -132,6 +142,38 @@ def scan(
             help="Optional OAST domain for Log4Shell/Text4Shell triggers (explicit opt-in).",
         ),
     ] = None,
+    enable_waf_bypass: Annotated[
+        bool,
+        typer.Option(
+            False,
+            "--enable-waf-bypass",
+            help="Enable Specter WAF evasion (header mutation & smuggling).",
+        ),
+    ] = False,
+    enable_distributed: Annotated[
+        bool,
+        typer.Option(
+            False,
+            "--enable-distributed",
+            help="Enable Hive Mind distributed scanning (requires Redis).",
+        ),
+    ] = False,
+    redis_url: Annotated[
+        str | None,
+        typer.Option(
+            None,
+            "--redis-url",
+            help="Redis URL for distributed queue (e.g., redis://localhost:6379).",
+        ),
+    ] = None,
+    enable_sonar: Annotated[
+        bool,
+        typer.Option(
+            False,
+            "--enable-sonar",
+            help="Enable Sonar OAST listener for real-time callback detection.",
+        ),
+    ] = False,
     output: Annotated[
         str,
         typer.Option(
@@ -194,6 +236,18 @@ def scan(
     renderer.startup(total_targets=len(deduped), modules=selected_modules, stealth=stealth)
 
     async def _run() -> None:
+        waf_cfg = WAFBypassConfig(enabled=enable_waf_bypass) if enable_waf_bypass else None
+        
+        dist_cfg: DistributedQueueConfig | None = None
+        if enable_distributed:
+            dist_cfg = DistributedQueueConfig(
+                enabled=True,
+                backend="redis",
+                redis_url=redis_url or "redis://localhost:6379",
+                master_mode=True,
+                worker_mode=False,
+            )
+        
         cfg = ScanConfig(
             concurrency=concurrency,
             rate_limit_rps=rate_limit,
@@ -204,6 +258,10 @@ def scan(
             client_cert=str(client_cert) if client_cert else None,
             client_key=str(client_key) if client_key else None,
             verbose=verbose,
+            waf_bypass=waf_cfg,
+            distributed_queue=dist_cfg,
+            oast_listener_enabled=enable_sonar or bool(oast_domain),
+            oast_domain=oast_domain or "interact.sh",
         )
 
         async def progress_cb(stats: EngineStats, completed: int, total: int) -> None:
