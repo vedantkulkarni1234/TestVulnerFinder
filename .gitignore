@@ -1,0 +1,65 @@
+# NEXUS Framework - Git Ignore
+
+# Cache and temporary files
+cache/
+*.cache
+*.tmp
+*.temp
+*.log
+
+# Runtime configuration
+.nexus/
+.nexus
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup
+*.orig
+
+# Test files
+test_*
+*_test.sh
+test-output/
+
+# Documentation build
+docs/_build/
+docs/build/
+
+# Python/Node packages (if any)
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Shell script backups
+*.sh.bak
+*.bash.bak
+
+# Results and output files
+results/
+output/
+*.json.bak
+*.csv.bak
+
+# Development files
+dev-*
+test-*
+debug-*
