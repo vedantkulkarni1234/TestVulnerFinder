@@ -2,6 +2,14 @@
 
 AURORA is a Python 3.11+ asynchronous reconnaissance tool focused on **high-confidence, evidence-attributed detection** of environments exposed to nine legendary Java/Node RCE chains.
 
+**🎉 NEW: Conversational Interface powered by Gemini 2.5 Flash**  
+No more memorizing CLI flags! Just describe what you want in natural language:
+```bash
+aurora-chat chat
+> scan example.com for log4shell with stealth mode enabled
+```
+See [CONVERSATIONAL_GUIDE.md](CONVERSATIONAL_GUIDE.md) for details.
+
 It is intentionally **recon-only**:
 - no exploitation payloads (except opt-in OAST trigger strings for Log4Shell/Text4Shell)
 - no authentication bypass attempts
@@ -211,7 +219,12 @@ uv venv
 source .venv/bin/activate
 uv pip install -e .
 
+# Traditional CLI
 aurora scan https://target.example.com
+
+# Conversational interface (requires GOOGLE_API_KEY)
+export GOOGLE_API_KEY="your-key-here"
+aurora-chat chat
 ```
 
 ### Install (pip)
@@ -221,10 +234,15 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -e .
 
+# Traditional CLI
 aurora scan -l targets.txt --concurrency 50 --rate-limit 15
+
+# Conversational interface
+export GOOGLE_API_KEY="your-key-here"
+aurora-chat chat
 ```
 
-### Usage examples
+### Traditional CLI Examples
 
 ```bash
 aurora scan https://target.example.com
@@ -238,3 +256,22 @@ aurora scan https://target.example.com --stealth --user-agent "Mozilla/5.0..."
 # Explicit opt-in: send OAST trigger strings for Log4Shell/Text4Shell
 aurora scan https://target.example.com --modules log4shell,text4shell --oast-domain oast.example.org
 ```
+
+### Conversational Interface Examples
+
+**Interactive mode:**
+```bash
+aurora-chat chat
+> scan example.com for log4shell
+> enable WAF bypass and check test.com for all vulnerabilities
+> what is spring4shell?
+> use stealth mode on 192.168.1.0/24
+```
+
+**One-shot mode (for scripting):**
+```bash
+aurora-chat query "scan example.com for all vulnerabilities"
+aurora-chat query "check https://test.com for log4shell with OAST enabled"
+```
+
+See [CONVERSATIONAL_GUIDE.md](CONVERSATIONAL_GUIDE.md) for comprehensive documentation.

@@ -22,5 +22,9 @@ dist/
 # Reports
 aurora-report.*
 
+# Environment variables
+.env
+.env.local
+
 # OS
 .DS_Store
