@@ -1,0 +1,13 @@
+name: Business Email Compromise (BEC)
+id: business_email_compromise
+description: Investigate CEO fraud, wire transfer scams, and email account takeover for financial fraud.
+tags: [bec, ceo_fraud, phishing, financial]
+inputs: [email_logs, auth_logs, financial_transaction_records]
+steps:
+  - identify_spoofed_or_compromised_executive_accounts
+  - analyze_email_flow_and_unusual_forwarding_rules
+  - detect_urgent_wire_transfer_requests
+  - correlate_with_financial_losses
+  - map_to_mitre_social_engineering
+  - recommend_executive_protection_and_verification_procedures
+  - coordinate_with_finance_and_legal_teams

@@ -1,0 +1,12 @@
+name: Cloud IAM Abuse (AWS/Azure/GCP)
+id: cloud_iam_abuse
+description: Detect privilege escalation, credential exposure, and unauthorized access in cloud IAM.
+tags: [cloud, aws, azure, gcp, iam]
+inputs: [cloudtrail, azure_logs, gcp_logs]
+steps:
+  - identify_new_user_or_role_creation
+  - detect_privilege_escalation_via_policy_changes
+  - check_for_exposed_access_keys_or_credentials
+  - analyze_cross_account_assume_role_activity
+  - map_to_mitre_cloud_techniques
+  - recommend_iam_hardening_and_mfa_enforcement

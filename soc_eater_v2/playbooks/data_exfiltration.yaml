@@ -1,0 +1,12 @@
+name: Data Exfiltration Detection
+id: data_exfiltration
+description: Identify unusual data transfers via cloud upload, USB, email, FTP, etc.
+tags: [exfiltration, dlp, cloud]
+inputs: [network_logs, dlp_alerts, cloud_logs]
+steps:
+  - detect_large_file_uploads_to_public_cloud
+  - identify_usb_usage_and_file_copies
+  - check_email_attachments_with_sensitive_data
+  - analyze_ftp_sftp_scp_transfers
+  - map_to_mitre_exfiltration_techniques
+  - recommend_dlp_tuning_and_egress_filtering

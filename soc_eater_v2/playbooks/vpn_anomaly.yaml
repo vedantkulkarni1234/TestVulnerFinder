@@ -1,0 +1,12 @@
+name: VPN Anomaly Detection
+id: vpn_anomaly
+description: Detect impossible travel, compromised VPN credentials, or unauthorized access.
+tags: [vpn, remote_access, geo_anomaly]
+inputs: [vpn_logs, geo_locations, user_accounts]
+steps:
+  - detect_impossible_travel_scenarios
+  - identify_unusual_source_countries
+  - check_concurrent_logins_from_multiple_locations
+  - correlate_with_credential_theft_indicators
+  - recommend_account_suspension_and_investigation
+  - recommend_stronger_vpn_authentication

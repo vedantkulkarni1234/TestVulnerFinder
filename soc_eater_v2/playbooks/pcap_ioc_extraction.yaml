@@ -1,0 +1,12 @@
+name: PCAP Upload - IOC Extraction & Attack Reconstruction
+id: pcap_ioc_extraction
+description: Extract all IOCs from a PCAP, infer attack stages, and produce hunt queries.
+tags: [pcap, network, ioc, c2]
+inputs: [pcap_summary, time_window, internal_subnets]
+steps:
+  - extract_external_ips_domains_urls
+  - identify_dns_and_http_indicators
+  - identify_suspicious_ports_and_protocols
+  - infer_beaconing_or_exfiltration
+  - map_to_mitre_network_techniques
+  - produce_detection_queries

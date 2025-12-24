@@ -1,0 +1,12 @@
+name: Shadow IT Discovery and Risk Assessment
+id: shadow_it
+description: Identify unauthorized cloud services and applications used by employees.
+tags: [shadow_it, cloud, saas, casb]
+inputs: [proxy_logs, cloud_logs, dns_queries]
+steps:
+  - identify_unauthorized_cloud_services
+  - assess_data_sharing_and_compliance_risk
+  - correlate_with_users_and_departments
+  - map_to_business_impact_and_data_classification
+  - recommend_approved_alternatives
+  - recommend_casb_and_policy_enforcement

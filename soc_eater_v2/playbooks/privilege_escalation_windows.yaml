@@ -1,0 +1,11 @@
+name: Privilege Escalation - Windows
+id: privilege_escalation_windows
+description: Investigate privilege escalation attempts (UAC bypass, token manipulation, vulnerable drivers).
+tags: [privilege_escalation, windows]
+inputs: [edr_alert, sysmon, security_events]
+steps:
+  - identify_privileged_logons_and_token_events
+  - check_uac_bypass_indicators
+  - look_for_suspicious_driver_loads
+  - correlate_with_process_injection_or_credential_access
+  - recommend_patch_and_remove_vulnerable_software

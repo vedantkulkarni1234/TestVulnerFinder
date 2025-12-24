@@ -1,0 +1,12 @@
+name: Command and Control (C2) Beaconing Detection
+id: c2_beaconing
+description: Identify periodic beaconing patterns indicative of C2 communication.
+tags: [c2, beaconing, cobalt_strike]
+inputs: [proxy_logs, dns_logs, network_traffic]
+steps:
+  - analyze_periodic_http_or_https_requests
+  - detect_dns_tunneling_and_long_domain_queries
+  - identify_cobalt_strike_malleable_c2_patterns
+  - map_to_mitre_c2_techniques
+  - recommend_blocking_c2_domains_and_ips
+  - provide_threat_hunt_queries

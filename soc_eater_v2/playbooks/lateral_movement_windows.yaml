@@ -1,0 +1,12 @@
+name: Lateral Movement - Windows (SMB/RDP/WMI)
+id: lateral_movement_windows
+description: Detect and investigate lateral movement using SMB, RDP, WMI, WinRM, PsExec.
+tags: [lateral_movement, windows, smb, rdp, wmi]
+inputs: [event_logs, edr_telemetry, network_logs]
+steps:
+  - identify_remote_execution_events
+  - correlate_authentication_and_logon_types
+  - find_admin_share_access_and_psexec_service
+  - map_to_mitre_lateral_movement
+  - scope_impacted_hosts_and_accounts
+  - recommend_password_reset_and_krbtgt_rotation_if_needed

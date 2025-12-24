@@ -1,0 +1,13 @@
+name: APT Campaign Investigation
+id: apt_campaign
+description: Full investigation for advanced persistent threat campaigns with multiple TTPs.
+tags: [apt, nation_state, advanced]
+inputs: [all_telemetry, threat_intel, iocs]
+steps:
+  - aggregate_iocs_across_sources
+  - map_full_attack_chain_to_mitre
+  - correlate_with_known_apt_groups
+  - analyze_ttps_and_attribution
+  - scope_full_enterprise_impact
+  - recommend_long_term_hardening_and_monitoring
+  - produce_executive_and_board_ready_brief

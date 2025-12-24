@@ -1,0 +1,11 @@
+name: Persistence - Registry Run Keys / Scheduled Tasks
+id: persistence_registry_tasks
+description: Detect persistence via registry run keys, scheduled tasks, services, and startup folders.
+tags: [persistence, windows]
+inputs: [registry_events, task_events, service_events]
+steps:
+  - enumerate_run_keys_and_startup_entries
+  - inspect_scheduled_tasks_for_suspicious_actions
+  - check_new_or_modified_services
+  - map_to_mitre_persistence_techniques
+  - recommend_cleanup_and_baselining

@@ -1,0 +1,13 @@
+name: EDR Alert - Process Tree Investigation
+id: edr_process_tree
+description: Investigate an EDR alert by reconstructing process lineage, parent/child relationships, and execution context.
+tags: [edr, endpoint, malware, execution]
+inputs: [process_name, command_line, parent_process, user, host, hashes]
+steps:
+  - reconstruct_process_tree
+  - identify_lolbins_and_suspicious_args
+  - map_to_mitre_techniques
+  - determine_initial_vector
+  - scope_similar_events_across_fleet
+  - recommend_containment_isolation_actions
+  - recommend_eradication_steps

@@ -1,0 +1,12 @@
+name: Brute Force Attack (SSH/RDP/Web Login)
+id: brute_force_attack
+description: Detect and respond to password brute forcing or credential stuffing.
+tags: [brute_force, authentication, rdp, ssh]
+inputs: [auth_logs, failed_logins, firewall_logs]
+steps:
+  - identify_high_volume_failed_logins
+  - detect_credential_stuffing_patterns
+  - correlate_with_known_attacker_ips
+  - map_to_mitre_credential_access
+  - recommend_account_lockout_and_ip_blocking
+  - recommend_mfa_and_rate_limiting

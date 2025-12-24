@@ -1,0 +1,12 @@
+name: Container Escape / Breakout Detection
+id: container_breakout
+description: Detect and investigate container escape or privilege escalation in Docker/K8s.
+tags: [container, docker, kubernetes, escape]
+inputs: [container_logs, k8s_audit, runtime_telemetry]
+steps:
+  - detect_privileged_container_execution
+  - identify_host_file_system_access
+  - check_for_exposed_docker_socket
+  - analyze_k8s_rbac_misconfigurations
+  - map_to_mitre_container_escape
+  - recommend_hardening_and_runtime_security

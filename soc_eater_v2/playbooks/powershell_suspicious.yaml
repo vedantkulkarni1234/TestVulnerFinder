@@ -1,0 +1,12 @@
+name: Suspicious PowerShell Execution
+id: powershell_suspicious
+description: Investigate PowerShell with obfuscation, encoded commands, or download cradles.
+tags: [powershell, lolbin, execution]
+inputs: [command_line, script_block_logs, host, user]
+steps:
+  - decode_encodedcommand_if_present
+  - extract_urls_and_payload_paths
+  - identify_obfuscation_patterns
+  - map_to_mitre_powershell_techniques
+  - generate_hunt_queries_for_similar_commands
+  - recommend_constrained_language_mode_and_logging

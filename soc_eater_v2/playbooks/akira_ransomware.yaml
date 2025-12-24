@@ -1,0 +1,13 @@
+name: Akira Ransomware Detection and Response
+id: akira_ransomware
+description: Detect and respond to Akira ransomware incidents including pre-encryption exfiltration.
+tags: [akira, ransomware, incident_response]
+inputs: [edr_telemetry, file_system_events, ransom_notes, network_logs]
+steps:
+  - identify_initial_access_vectors_vpn_rdp_or_exposed_services
+  - detect_credential_access_and_lateral_movement
+  - identify_pre_encryption_data_exfiltration
+  - extract_iocs_from_akira_artifacts
+  - map_to_mitre_akira_attack_chain
+  - recommend_immediate_containment_and_backup_restoration
+  - coordinate_with_legal_and_law_enforcement

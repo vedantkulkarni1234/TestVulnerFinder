@@ -1,0 +1,12 @@
+name: Insider Threat Investigation
+id: insider_threat
+description: Investigate suspicious behavior by privileged users or terminated employees.
+tags: [insider, ueba, anomaly]
+inputs: [user_activity, access_logs, dlp_logs]
+steps:
+  - baseline_normal_user_behavior
+  - detect_unusual_access_patterns
+  - identify_off_hours_or_unauthorized_locations
+  - check_data_access_and_downloads
+  - correlate_with_hr_termination_or_disciplinary_actions
+  - recommend_account_monitoring_and_controls
