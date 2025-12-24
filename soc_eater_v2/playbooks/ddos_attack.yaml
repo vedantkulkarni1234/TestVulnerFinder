@@ -1,0 +1,12 @@
+name: DDoS Attack Detection and Mitigation
+id: ddos_attack
+description: Identify volumetric, protocol, or application-layer DDoS attacks.
+tags: [ddos, availability, network]
+inputs: [netflow, firewall_logs, cdn_logs]
+steps:
+  - detect_abnormal_traffic_volume_or_connection_rates
+  - identify_source_ips_and_attack_patterns
+  - classify_ddos_type_volumetric_syn_flood_http_flood
+  - map_to_mitre_dos_techniques
+  - recommend_rate_limiting_and_blackholing
+  - recommend_cdn_or_scrubbing_center_activation

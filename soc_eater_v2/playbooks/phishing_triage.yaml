@@ -1,0 +1,14 @@
+name: Phishing Triage
+id: phishing_triage
+description: End-to-end phishing email triage, IOC extraction, detonation guidance, and user response recommendations.
+tags: [phishing, email, bEC, malware]
+inputs: [email_headers, email_body, attachments, urls]
+steps:
+  - identify_sender_reputation
+  - extract_urls_domains_ips
+  - extract_attachment_metadata_and_hashes
+  - assess_social_engineering_tactics
+  - recommend_safe_detonation_steps
+  - determine_user_impact_and_scope
+  - propose_blocking_actions
+  - draft_user_reply_and_security_notice

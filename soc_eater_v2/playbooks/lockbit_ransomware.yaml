@@ -1,0 +1,13 @@
+name: LockBit Ransomware Detection and Response
+id: lockbit_ransomware
+description: Detect and respond to LockBit ransomware attacks.
+tags: [lockbit, ransomware, incident_response]
+inputs: [edr_telemetry, file_system_events, ransom_notes]
+steps:
+  - identify_lockbit_initial_access_vectors
+  - detect_ransomware_encryption_patterns
+  - extract_iocs_from_lockbit_artifacts
+  - identify_data_exfiltration_before_encryption
+  - map_to_mitre_lockbit_chain
+  - recommend_immediate_containment_and_backup_restoration
+  - coordinate_with_legal_and_law_enforcement

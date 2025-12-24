@@ -1,0 +1,12 @@
+name: Supply Chain Attack / Software Compromise
+id: supply_chain_attack
+description: Investigate malicious updates, compromised vendor tools, or trojanized software.
+tags: [supply_chain, software, vendor]
+inputs: [software_inventory, update_logs, edr_telemetry]
+steps:
+  - identify_suspicious_software_or_update_source
+  - verify_code_signing_certificates
+  - check_for_embedded_backdoors_or_implants
+  - scope_distribution_across_enterprise
+  - map_to_mitre_supply_chain_compromise
+  - recommend_vendor_review_and_rollback

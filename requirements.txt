@@ -1,0 +1,1 @@
+-r soc_eater_v2/requirements.txt

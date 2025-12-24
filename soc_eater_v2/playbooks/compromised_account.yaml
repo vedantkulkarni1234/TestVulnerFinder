@@ -1,0 +1,13 @@
+name: Compromised Account Investigation
+id: compromised_account
+description: Full investigation for confirmed or suspected account compromise.
+tags: [account, compromise, incident_response]
+inputs: [user_account, auth_logs, activity_logs]
+steps:
+  - identify_initial_compromise_vector
+  - timeline_all_account_activity_since_compromise
+  - identify_accessed_resources_and_data
+  - check_for_persistence_and_backdoors
+  - scope_lateral_movement_from_account
+  - recommend_password_reset_and_token_revocation
+  - recommend_security_awareness_training

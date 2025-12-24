@@ -1,0 +1,12 @@
+name: Malicious Office Macro Analysis
+id: malicious_macro
+description: Analyze weaponized Office documents with VBA macros or embedded scripts.
+tags: [macro, vba, phishing, office]
+inputs: [file_hash, vba_code, sandbox_results]
+steps:
+  - extract_and_deobfuscate_vba_macros
+  - identify_auto_execution_methods
+  - extract_download_urls_and_payload_locations
+  - map_to_mitre_initial_access_and_execution
+  - recommend_macro_blocking_and_asr_rules
+  - generate_detection_signatures

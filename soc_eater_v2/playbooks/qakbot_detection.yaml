@@ -1,0 +1,13 @@
+name: QakBot / Qbot Detection and Response
+id: qakbot_detection
+description: Detect and respond to QakBot malware infections.
+tags: [qakbot, malware, botnet]
+inputs: [edr_telemetry, network_logs, email_logs]
+steps:
+  - identify_qakbot_initial_delivery_via_phishing
+  - detect_process_injection_into_legitimate_processes
+  - identify_c2_beaconing_to_known_qakbot_infrastructure
+  - extract_iocs_from_known_qakbot_campaigns
+  - map_to_mitre_qakbot_ttps
+  - recommend_isolation_and_remediation
+  - recommend_email_filtering_and_user_awareness

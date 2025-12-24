@@ -1,0 +1,13 @@
+name: PhantomL0rd / PhantomLord Backdoor Investigation
+id: phantomlord
+description: Investigate suspected PhantomL0rd-style backdoor behavior (persistence, C2, credential access).
+tags: [backdoor, malware, c2, persistence]
+inputs: [edr_alerts, network_logs, persistence_artifacts]
+steps:
+  - identify_persistence_mechanisms_services_tasks_runkeys
+  - detect_c2_domains_ips_and_beaconing_intervals
+  - check_for_credential_access_or_browser_theft
+  - scope_impacted_hosts_and_user_accounts
+  - map_to_mitre_backdoor_ttps
+  - recommend_isolation_and_full_reimage_if_needed
+  - recommend_ioc_blocking_and_hunting

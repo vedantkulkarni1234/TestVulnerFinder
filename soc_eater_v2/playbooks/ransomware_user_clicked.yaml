@@ -1,0 +1,14 @@
+name: User Clicked Ransomware - Full IR in 30 Seconds
+id: ransomware_user_clicked
+description: Rapid ransomware incident response workflow from initial click through containment and recovery.
+tags: [ransomware, incident_response, containment]
+inputs: [user, host, timestamp, indicators]
+steps:
+  - confirm_encryption_and_scope
+  - identify_patient_zero
+  - isolate_hosts_and_disable_accounts
+  - block_iocs_at_edge_and_edr
+  - collect_artifacts_for_forensics
+  - map_to_mitre_ransomware_chain
+  - recommend_restoration_and_hardening
+  - generate_executive_and_legal_ready_summary

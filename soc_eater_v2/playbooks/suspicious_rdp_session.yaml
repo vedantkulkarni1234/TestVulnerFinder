@@ -1,0 +1,13 @@
+name: Suspicious RDP Session Investigation
+id: suspicious_rdp_session
+description: Investigate unusual or unauthorized RDP connections.
+tags: [rdp, lateral_movement, remote_access]
+inputs: [rdp_logs, network_logs, authentication_events]
+steps:
+  - identify_rdp_connections_from_unusual_sources
+  - detect_off_hours_or_geo_anomalous_rdp
+  - check_for_rdp_brute_force_followed_by_success
+  - correlate_with_account_compromise_indicators
+  - map_to_mitre_lateral_movement
+  - recommend_rdp_hardening_and_network_segmentation
+  - recommend_mfa_and_conditional_access

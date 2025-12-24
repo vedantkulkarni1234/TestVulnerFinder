@@ -1,0 +1,12 @@
+name: DNS Tunneling Detection
+id: dns_tunneling
+description: Detect covert data exfiltration or C2 over DNS.
+tags: [dns, tunneling, c2]
+inputs: [dns_logs, pcap, network_telemetry]
+steps:
+  - detect_long_dns_query_names
+  - identify_high_query_volume_to_single_domain
+  - check_for_unusual_record_types_txt_null
+  - analyze_entropy_and_randomness_in_queries
+  - map_to_mitre_c2_and_exfiltration
+  - recommend_dns_filtering_and_monitoring

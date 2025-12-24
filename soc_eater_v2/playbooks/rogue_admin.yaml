@@ -1,0 +1,13 @@
+name: Rogue Administrator Detection
+id: rogue_admin
+description: Detect unauthorized privileged account creation or abuse.
+tags: [privilege, admin, iam]
+inputs: [ad_logs, privilege_escalation_events, audit_logs]
+steps:
+  - detect_new_admin_accounts_or_group_memberships
+  - identify_unauthorized_domain_admin_activity
+  - check_for_golden_ticket_or_silver_ticket_usage
+  - correlate_with_legitimate_change_control
+  - map_to_mitre_persistence_and_privilege_escalation
+  - recommend_admin_account_monitoring_and_jea
+  - recommend_immediate_investigation_and_account_lockdown

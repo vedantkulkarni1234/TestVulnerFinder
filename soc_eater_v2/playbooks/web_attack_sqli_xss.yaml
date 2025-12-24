@@ -1,0 +1,12 @@
+name: Web Attack - SQL Injection / XSS
+id: web_attack_sqli_xss
+description: Investigate SQLi, XSS, command injection, and other web exploits.
+tags: [web, sqli, xss, waf]
+inputs: [waf_logs, web_server_logs, application_logs]
+steps:
+  - identify_sql_injection_patterns
+  - detect_xss_payloads_in_requests
+  - check_for_command_injection_and_rce
+  - map_to_mitre_web_exploitation
+  - recommend_waf_tuning_and_input_validation
+  - recommend_app_patching_and_code_review
